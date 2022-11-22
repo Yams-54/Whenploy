@@ -70,6 +70,10 @@ module.exports = {
          * resolve the one with the extension listed first in the array and skip the rest. 
          * This is what enables users to leave off the extension when importing
          */
-    extensions: ['.js','.jsx','.json'] 
+    extensions: ['.js','.jsx','.json'] ,
+    fallback: {
+      'react/jsx-runtime': 'react/jsx-runtime.js',
+      'react/jsx-dev-runtime': 'react/jsx-dev-runtime.js',
+    },
   },
 }
