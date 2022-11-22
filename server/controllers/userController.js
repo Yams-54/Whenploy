@@ -25,6 +25,10 @@ userController.Login = async (req, res, next) => {
             if (error) {
                 return next(error)
             } else {
+                //if username doesn't exist in DB
+                if(!response) {
+                    res.locals = {allowed:false}
+                    return next()};
                 console.log('response password', response)
                 const allowed = await bcrypt.compare(password, response.password) //this returns a boolean
                 if(allowed) {
