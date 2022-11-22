@@ -14,7 +14,7 @@ const RejectedColumn = ({changeStats}) => {
         setState(parsedJobs);
         let total = 0;
         parsedJobs.forEach((el) => {
-          if (el.status === 'rejected') total++
+          if (el.status === 'Rejected') total++
         })
         changeStats('Rejected', total)
       })
@@ -22,7 +22,7 @@ const RejectedColumn = ({changeStats}) => {
   }, [])
 
   const elems = state.map((job, i) => {
-    if (job.status === 'rejected')
+    if (job.status === 'Rejected')
       return (
         <Job
           key={i}

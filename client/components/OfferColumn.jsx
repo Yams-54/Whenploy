@@ -14,7 +14,7 @@ const OfferColumn = ({changeStats}) => {
         setState(parsedJobs);
         let total = 0;
         parsedJobs.forEach((el) => {
-          if (el.status === 'offer') total++
+          if (el.status === 'Offer Received') total++
         })
         changeStats('Offer Received', total)
       })
@@ -23,7 +23,7 @@ const OfferColumn = ({changeStats}) => {
 
 
   const elems = state.map((job, i) => {
-    if (job.status === 'offer')
+    if (job.status === 'Offer Received')
       return (
         <Job
           key={i}
