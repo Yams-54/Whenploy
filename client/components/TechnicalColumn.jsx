@@ -14,7 +14,7 @@ const TechnicalColumn = ({changeStats}) => {
         setState(parsedJobs);
         let total = 0;
         parsedJobs.forEach((el) => {
-          if (el.status === 'technical') total++
+          if (el.status === 'Technical Interview') total++
         })
         changeStats('Technical Interview', total)
       })
@@ -23,7 +23,7 @@ const TechnicalColumn = ({changeStats}) => {
 
 
   const elems = state.map((job, i) => {
-    if (job.status === 'technical')
+    if (job.status === 'Technical Interview')
       return (
         <Job
           key={i}
@@ -36,7 +36,7 @@ const TechnicalColumn = ({changeStats}) => {
   return (
     <div className="column">
       <div className="columnHeader">
-        <h1>Technical Interview Completed</h1>
+        <h1>Technical Interview</h1>
       </div>
       {elems}
     </div>
