@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Job from "./Job";
 
 
-const TechnicalColumn = () => {
+const TechnicalColumn = ({changeStats}) => {
 
   const [state, setState] = useState([]);
 
@@ -12,6 +12,11 @@ const TechnicalColumn = () => {
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
         setState(parsedJobs);
+        let total = 0;
+        parsedJobs.forEach((el) => {
+          if (el.status === 'technical') total++
+        })
+        changeStats('Technical Interview', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [])

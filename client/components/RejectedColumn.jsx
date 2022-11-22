@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Job from "./Job";
 
 
-const RejectedColumn = () => {
+const RejectedColumn = ({changeStats}) => {
 
   const [state, setState] = useState([]);
 
@@ -12,6 +12,11 @@ const RejectedColumn = () => {
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
         setState(parsedJobs);
+        let total = 0;
+        parsedJobs.forEach((el) => {
+          if (el.status === 'rejected') total++
+        })
+        changeStats('Rejected', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [])
