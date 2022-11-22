@@ -14,7 +14,7 @@ const AppliedColumn = ({changeStats}) => {
         setState(parsedJobs);
         let total = 0;
         parsedJobs.forEach((el) => {
-          if (el.status === 'applied') total++
+          if (el.status === 'Applied') total++
         })
         changeStats('Applied', total)
       })
@@ -25,7 +25,7 @@ const AppliedColumn = ({changeStats}) => {
 const elems = [];
 
 state.map((job, i) => {
-  if (job.status === 'applied')
+  if (job.status === 'Applied')
   elems.push(
     <Job
       // refresh={refresh}
