@@ -28,7 +28,7 @@ const AddApplication = (props) => {
         console.log(data);
       })
       .then(() => {
-        props.history.push('/');
+        props.history.push('/allApplications');
       })
       .catch((err) =>
         console.log('AddApplicaiton fetch /api/job: ERROR: ', err)
@@ -39,7 +39,7 @@ const AddApplication = (props) => {
     <section className="mainSection createCharContainer">
       <header className="pageHeader">
         <h2>Add New Job Application</h2>
-        <Link to="/" className="backLink">
+        <Link to="/allApplications" className="backLink">
           <button type="button" className="btnSecondary">
             Back to all applications
           </button>
@@ -94,7 +94,7 @@ const AddApplication = (props) => {
           <input name="note"/>
         </div>
         <div className="createJobButtonContainer">
-          <Link to="/" className="backLink">
+          <Link to="/allApplications" className="backLink">
             <button type="button" className="btnSecondary">
               Cancel
             </button>
