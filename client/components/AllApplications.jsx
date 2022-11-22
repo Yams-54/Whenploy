@@ -17,7 +17,7 @@ const AllApplications = () => {
     <section className="mainSection">
       <h1>Job Application Tracker</h1>
       <div className="allAppButtons">
-        <Link to={'/AddApplication'}>
+        <Link to={'/addApplication'}>
           <button
             type="button"
             className="linkButton">Add New Job</button>

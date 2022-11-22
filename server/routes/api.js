@@ -1,7 +1,9 @@
 const express = require('express');
 const JobController = require('../controllers/JobController');
+const userController = require('../controllers/userController');
 const app = express();
 const Router = express.Router();
+
 
 
 // app.use('/', Router);
@@ -39,7 +41,7 @@ Router.delete('/:name', JobController.deleteJob,
   });
 
   //user api calls below
-  Router.post('/signUp', (req, res) => {
+  Router.post('/signUp', userController.createUser, (req, res) => {
     return res.status(200)
   });
 

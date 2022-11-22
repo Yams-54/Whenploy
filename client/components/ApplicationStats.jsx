@@ -41,7 +41,7 @@ const ApplicationStats = () => {
   return (
     <div className="appStats">
       <h1>Status of Current Applications</h1>
-      <Link to="/" className="backLink">
+      <Link to="/allApplications" className="backLink">
         <button type="button" className="btnSecondary">
           Back to all applications
         </button>

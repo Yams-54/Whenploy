@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import AllApplications from './components/AllApplications';
 import AddApplication from './components/AddApplication';
 import ApplicationStats from './components/ApplicationStats';
+import SignUp from './components/SignUp';
 
 import './styles.scss';
 
@@ -14,8 +15,13 @@ const App = () => {
       <main>
         <Switch>
           <Route
+          exact 
+          path='/'
+          component={SignUp}
+          />
+          <Route
             exact
-            path='/'
+            path='/allApplications'
             component={AllApplications}
             />
             <Route
