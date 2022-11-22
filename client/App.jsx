@@ -1,9 +1,10 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route,  } from 'react-router-dom';
 import AllApplications from './components/AllApplications';
 import AddApplication from './components/AddApplication';
 import ApplicationStats from './components/ApplicationStats';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 import './styles.scss';
 
@@ -18,6 +19,11 @@ const App = () => {
           exact 
           path='/'
           component={SignUp}
+          />
+          <Route
+          exact 
+          path='/login'
+          component={Login}
           />
           <Route
             exact

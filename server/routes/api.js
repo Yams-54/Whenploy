@@ -45,4 +45,9 @@ Router.delete('/:name', JobController.deleteJob,
     return res.status(200)
   });
 
+  //login
+  Router.post('/login', userController.Login, (req, res) => {
+    return res.status(200).json(res.locals);
+  })
+
   module.exports = Router;

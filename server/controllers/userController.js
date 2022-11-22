@@ -1,5 +1,6 @@
 const User = require('../models/userModel');
-
+const bcrypt = require ('bcrypt');
+const SALT_WORK_FACTOR = 10;
 const userController = {};
 
 userController.createUser = async (req, res, next) => {
@@ -15,19 +16,28 @@ userController.createUser = async (req, res, next) => {
             return next();
         }
     })
-    // .then((user) => {
-    //     console.log('hello user');
-    //     res.locals.user = user;
-    //     return next();
-    // })
-    // .catch((err) => {
-    //     console.log('body', req.body);
-    //     return next({
-
-    //         log: 'Error at userController.createUser',
-    //         message: {err: 'Invalid username and password'},
-    //     });
-    // });
 };
+
+userController.Login = async (req, res, next) => {
+    const {username, password} = req.body;
+    const existingUser = await User.findOne({username: username},
+        async (error, response) => {
+            if (error) {
+                return next(error)
+            } else {
+                console.log('response password', response)
+                const allowed = await bcrypt.compare(password, response.password) //this returns a boolean
+                if(allowed) {
+                    console.log('allowed');
+                    res.locals = {allowed: true};
+                    return next();
+                } 
+                else {
+                    res.locals = {allowed: false};
+                    return next()
+                }
+        }
+    });
+}
 
 module.exports = userController;

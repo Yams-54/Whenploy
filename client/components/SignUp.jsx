@@ -1,7 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
+import {Link} from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = (props) => {
 
   function submitHandler() {
     const userData = {
@@ -12,13 +13,18 @@ const SignUp = () => {
 
     Axios.post('/api/signUp', userData);
     //add logic to redirect to login after signup
+    props.history.push('/login');
   }
 
   return (
     <form onSubmit={submitHandler}>
+      <h1>Sign Up</h1>
       <input type="text" id="username"></input>
       <input type="password" id="password"></input>
       <button type="submit">Sign up</button>
+      <Link to='/login'>
+        <button>Already have an account? Login Here</button>
+      </Link>
     </form>
   );
 };
