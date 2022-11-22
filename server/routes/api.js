@@ -38,4 +38,9 @@ Router.delete('/:name', JobController.deleteJob,
     return res.status(200).json(res.locals.deletedJob);
   });
 
+  //user api calls below
+  Router.post('/signUp', (req, res) => {
+    return res.status(200)
+  });
+
   module.exports = Router;
