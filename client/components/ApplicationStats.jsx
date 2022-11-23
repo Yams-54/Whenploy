@@ -19,7 +19,7 @@ const ApplicationStats = () => {
   }
 
   const data = {
-    labels: ['Application Submitted', 'Phone Screen Completed', 'Technical Interview Completed', 'Final Interview Completed', 'Offer Received', 'Application Rejected'],
+    labels: ['Application Submitted', 'Phone Screen', 'Technical Interview', 'Final Interview', 'Offer Received', 'Application Rejected'],
     datasets: [
       {
         label: 'Percent',

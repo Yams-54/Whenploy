@@ -11,6 +11,7 @@ const Job = ({ info }) => {
 
   const changeStatus = event => {
     // console.log(event.target.value);
+    event.preventDefault();
     const company = event.target.id;
     const value = event.target.value;
 

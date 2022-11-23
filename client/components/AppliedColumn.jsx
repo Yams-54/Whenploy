@@ -19,7 +19,7 @@ const AppliedColumn = ({changeStats}) => {
         changeStats('Applied', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
 const elems = [];
