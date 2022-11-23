@@ -274,6 +274,17 @@ body {
         border-color: #3B7097;
         color: $darkBlue
     }
+    .expandBtn {
+        background-color: $background;
+    }
+    svg:hover {
+        cursor: pointer;
+        color: $offer;
+    }
+    .jobTitle {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .job:hover {
