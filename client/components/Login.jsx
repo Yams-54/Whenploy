@@ -1,5 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const Login = (props) => {
 console.log('hello in login');
@@ -16,7 +17,7 @@ console.log('hello in login');
             console.log('data', data)
             if(data.data.allowed) props.history.push('/allApplications');
             else {
-                props.history.push('/');
+                alert('invalid username or password');
             }
         })
         .catch((err) =>
@@ -31,6 +32,9 @@ console.log('hello in login');
       <input type="text" id="username"></input>
       <input type="password" id="password"></input>
       <button type="submit">Login</button>
+      <Link to='/'>
+        <button>Don't have an account? Sign Up Here</button>
+      </Link>
     </form>
   );
 };

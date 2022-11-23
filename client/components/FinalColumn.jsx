@@ -5,6 +5,7 @@ import Job from "./Job";
 
 const FinalColumn = ({changeStats}) => {
 
+  const [newValue, setValue] = useState(0);
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -22,6 +23,9 @@ const FinalColumn = ({changeStats}) => {
   }, [state])
 
 
+  function updater(){
+    setValue(value => value + 1);
+  }
 
 const elems = state.map((job, i) => {
   if (job.status === 'Final Interview')
