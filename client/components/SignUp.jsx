@@ -17,14 +17,18 @@ const SignUp = (props) => {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <h1>Sign Up</h1>
-      <input type="text" id="username"></input>
-      <input type="password" id="password"></input>
-      <button type="submit">Sign up</button>
-      <Link to='/login'>
-        <button>Already have an account? Login Here</button>
-      </Link>
+    <form className="signUpForm" onSubmit={submitHandler}>
+      <div className='box'>
+        <h1>Whenploy</h1>
+        <div className='inputs'>
+          <input className="inputUser" type="text" id="username" placeholder='username'></input>
+          <input className="inputPW" type="password" id="password" placeholder='password'></input>
+          <button className="signUpBtn" type="submit">Sign up</button>
+        </div>
+        <div className='redirect'>
+            <span className="redirectButton">Already have an account? <Link id='link' to='/login'>Login Here</Link></span>
+        </div>
+      </div>
     </form>
   );
 };

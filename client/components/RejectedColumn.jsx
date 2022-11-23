@@ -33,11 +33,10 @@ const RejectedColumn = ({changeStats}) => {
 
 
   return (
-    <div className="column">
+    <div className="rejectColumn">
       <div className="columnHeader">
-        <h1>Application Rejected</h1>
+        <h1>Rejected</h1>
       </div>
-    <br />
       {elems}
     </div>
   )

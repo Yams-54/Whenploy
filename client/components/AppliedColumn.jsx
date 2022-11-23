@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Job from "./Job";
 
 
-const AppliedColumn = () => {
+const AppliedColumn = ({changeStats}) => {
 
 
   const [state, setState] = useState([]);
@@ -12,15 +12,19 @@ const AppliedColumn = () => {
     fetch('http://localhost:8080/api')
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
-
         setState(parsedJobs);
+        let total = 0;
+        parsedJobs.forEach((el) => {
+          if (el.status === 'Applied') total++
+        })
+        changeStats('Applied', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [state])
 
 
   const elems = state.map((job, i) => {
-    if (job.status === 'applied')
+    if (job.status === 'Applied')
       return (
         <Job
           key={i}
@@ -29,17 +33,13 @@ const AppliedColumn = () => {
       );
   });
 
-
-  
-  
     return (
 
-      <div className="column">
-        <h1>Application Submitted</h1>
-        <br/>
+      <div className="appliedColumn">
+        <h1>Applied</h1>
         {elems}
       </div>
     )
 }
 
-export default AppliedColumn; //update={}''update
+export default AppliedColumn; 

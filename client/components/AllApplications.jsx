@@ -30,7 +30,7 @@ const AllApplications = () => {
 
   return (
     <section className="mainSection">
-      <h1>Job Application Tracker</h1>
+      <h1>Whenploy</h1>
       <div className="allAppButtons">
         <Link to={'/addApplication'}>
           <button

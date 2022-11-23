@@ -48,12 +48,14 @@ const ApplicationStats = () => {
   return (
     <div className="appStats">
       <h1>Status of Current Applications</h1>
+      <Pie data={data} height="700px" width="700px" options={{responsive: false}} />
       <Link to="/allApplications" className="backLink">
         <button type="button" className="btnSecondary">
-          Back to all applications
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
         </button>
       </Link>
-      <Pie data={data} height="800px" width="800px" options={{responsive: false}} />
     </div>
   );
 }

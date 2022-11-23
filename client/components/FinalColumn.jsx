@@ -22,11 +22,6 @@ const FinalColumn = ({changeStats}) => {
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
   }, [state])
 
-
-  function updater(){
-    setValue(value => value + 1);
-  }
-
 const elems = state.map((job, i) => {
   if (job.status === 'Final Interview')
   return (
@@ -39,7 +34,7 @@ const elems = state.map((job, i) => {
   
   
     return (
-      <div className="column">
+      <div className="finalColumn">
         <h1>Final Interview</h1>
         {elems}
       </div>

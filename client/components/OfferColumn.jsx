@@ -34,11 +34,10 @@ const OfferColumn = ({changeStats}) => {
   });
 
   return (
-    <div className="column">
+    <div className="offerColumn">
       <div className="columnHeader">
         <h1>Offer Received</h1>
       </div>
-      <br />
       {elems}
     </div>
   )

@@ -27,14 +27,18 @@ console.log('hello in login');
   
 
   return (
-    <form onSubmit={submitHandler}>
-        <h1>Log In</h1>
-      <input type="text" id="username"></input>
-      <input type="password" id="password"></input>
-      <button type="submit">Login</button>
-      <Link to='/'>
-        <button>Don't have an account? Sign Up Here</button>
-      </Link>
+    <form className='signUpForm' onSubmit={submitHandler}>
+      <div className='box'>
+        <h1>Whenploy</h1>
+        <div className='inputs'>
+          <input className="inputUser" type="text" id="username" placeholder='username'></input>
+          <input className="inputPW" type="password" id="password" placeholder='password'></input>
+          <button className="signUpBtn" type="submit">Log in</button>
+        </div>
+        <div className='redirect'>
+          <span className="redirectButton">Don't have an account? <Link id='link' to='/'>Sign Up Here</Link></span>
+        </div>
+      </div>
     </form>
   );
 };

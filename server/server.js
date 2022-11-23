@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '../build'));
 app.use('/api', apiRouter);
 // connect to mongoose
 mongoose
-  .connect('mongodb+srv://jj289:Codesmith123@cluster3.sjwcpl4.mongodb.net/scratchDB', {
+  .connect('mongodb+srv://linda:QsKIMOxlQ6AsCuNm@cluster0.yhohdys.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

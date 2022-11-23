@@ -30,17 +30,17 @@ const App = () => {
             path='/allApplications'
             component={AllApplications}
             />
-            <Route
-              exact
-              path='/addApplication'
-              component={AddApplication}
-              />    
-              <Route
-              exact
-              path='/ApplicationStats'
-              component={ApplicationStats}
-              />     
-            </Switch>
+          <Route
+            exact
+            path='/addApplication'
+            component={AddApplication}
+            />    
+          <Route
+          exact
+          path='/ApplicationStats'
+          component={ApplicationStats}
+          />     
+        </Switch>
       </main>
     </div>
   )
