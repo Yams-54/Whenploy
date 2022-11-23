@@ -16,7 +16,7 @@ const AppliedColumn = () => {
         setState(parsedJobs);
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
   const elems = state.map((job, i) => {

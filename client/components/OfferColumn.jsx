@@ -20,7 +20,7 @@ const OfferColumn = ({changeStats}) => {
         changeStats('Offer Received', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
   const elems = state.map((job, i) => {

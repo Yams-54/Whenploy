@@ -20,7 +20,7 @@ const FinalColumn = ({changeStats}) => {
         changeStats('Final Interview', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, []);
+  }, [state])
 
 
   function updater(){
