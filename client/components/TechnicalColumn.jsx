@@ -19,7 +19,7 @@ const TechnicalColumn = ({changeStats}) => {
         changeStats('Technical Interview', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
   const elems = state.map((job, i) => {
