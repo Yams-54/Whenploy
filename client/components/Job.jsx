@@ -4,16 +4,21 @@ import { connect } from 'react-redux';
 
 
 
-const Job = ({ info }) => {
+const Job = ( { info }) => {
   //destructure info prop
   const { role, company, location, status, contact, referral, salary, note } = info;
+  
+        const [newValue, setValue] = useState(0);
+
+
 
 
   const changeStatus = event => {
     // console.log(event.target.value);
+    event.preventDefault();
     const company = event.target.id;
     const value = event.target.value;
-
+  
       const body = {
         value: value,
       };
@@ -32,9 +37,9 @@ const Job = ({ info }) => {
         //   props.history.push('/');
         // })
         .catch(err => console.log('saveStatusChange fetch /api/companyName: ERROR: ', err));
-
-        window.location.reload();
-    
+        // window.location.reload();
+        setValue(value => value + 1);
+        this.props.update();
     }
 
     //for react drop down select
@@ -63,12 +68,12 @@ const Job = ({ info }) => {
         <h3>Change application status:</h3>
         <select id={company} className="dropdown" onChange={changeStatus}>
           <option value="none">Select New Status</option>
-          <option value="applied">Applied</option>
-          <option value="phone">Phone Interview Completed</option>
-          <option value="technical">Technical Interview Completed</option>
-          <option value="final">Final Interview Completed</option>
-          <option value="offer">Offer</option>
-          <option value="rejected">Rejected</option>
+          <option value="Applied">Applied</option>
+          <option value="Phone Interview">Phone Interview</option>
+          <option value="Technical Interview">Technical Interview</option>
+          <option value="Final Interview">Final Interview</option>
+          <option value="Offer Received">Offer Received</option>
+          <option value="Rejected">Rejected</option>
         </select>
       </div>
     )

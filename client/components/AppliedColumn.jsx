@@ -5,6 +5,7 @@ import Job from "./Job";
 
 const AppliedColumn = () => {
 
+
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -15,22 +16,24 @@ const AppliedColumn = () => {
         setState(parsedJobs);
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
-const elems = state.map((job, i) => {
-  if (job.status === 'applied')
-  return (
-    <Job
-      key={i}
-      info={job}
-    />
-  );
-});
+  const elems = state.map((job, i) => {
+    if (job.status === 'applied')
+      return (
+        <Job
+          key={i}
+          info={job}
+        />
+      );
+  });
+
 
   
   
     return (
+
       <div className="column">
         <h1>Application Submitted</h1>
         <br/>
@@ -39,4 +42,4 @@ const elems = state.map((job, i) => {
     )
 }
 
-export default AppliedColumn;
+export default AppliedColumn; //update={}''update

@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import Job from "./Job";
 
 
-const FinalColumn = () => {
+const FinalColumn = ({changeStats}) => {
 
+  const [newValue, setValue] = useState(0);
   const [state, setState] = useState([]);
 
   useEffect(() => {
@@ -12,14 +13,22 @@ const FinalColumn = () => {
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
         setState(parsedJobs);
+        let total = 0;
+        parsedJobs.forEach((el) => {
+          if (el.status === 'Final Interview') total++
+        })
+        changeStats('Final Interview', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
+  function updater(){
+    setValue(value => value + 1);
+  }
 
 const elems = state.map((job, i) => {
-  if (job.status === 'final')
+  if (job.status === 'Final Interview')
   return (
     <Job
       key={i}
@@ -31,7 +40,7 @@ const elems = state.map((job, i) => {
   
     return (
       <div className="column">
-        <h1>Final Interview Completed</h1>
+        <h1>Final Interview</h1>
         {elems}
       </div>
     )

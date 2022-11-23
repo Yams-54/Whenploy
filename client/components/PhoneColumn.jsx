@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Job from "./Job";
 
 
-const PhoneColumn = () => {
+const PhoneColumn = ({changeStats}) => {
 
   const [state, setState] = useState([]);
 
@@ -12,13 +12,18 @@ const PhoneColumn = () => {
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
         setState(parsedJobs);
+        let total = 0;
+        parsedJobs.forEach((el) => {
+          if (el.status === 'Phone Interview') total++
+        })
+        changeStats('Phone Interview', total)
       })
       .catch(err => console.log('Jobs.useEffect: get jobs: ERROR: ', err));
-  }, [])
+  }, [state])
 
 
   const elems = state.map((job, i) => {
-    if (job.status === 'phone')
+    if (job.status === 'Phone Interview')
       return (
         <Job
           key={i}
@@ -31,7 +36,7 @@ const PhoneColumn = () => {
   return (
     <div className="column">
       <div className="columnHeader">
-        <h1>Phone Interview Completed</h1>
+        <h1>Phone Interview</h1>
       </div>
       {elems}
     </div>

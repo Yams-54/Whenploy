@@ -2,37 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// Custom hook for handling input boxes
-// saves us from creating onChange handlers for them individually
-const useInput = (init) => {
-  const [value, setValue] = useState(init);
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
-  // return the value with the onChange function instead of setValue function
-  return [value, onChange];
-};
 
 const AddApplication = (props) => {
-  const [role, roleOnChange] = useInput('');
-  const [company, companyOnChange] = useInput('');
-  const [location, locationOnChange] = useInput('');
-  const [status, statusOnChange] = useInput('');
-  const [contact, contactOnChange] = useInput('');
-  const [referral, referralOnChange] = useInput('');
-  const [salary, salaryOnChange] = useInput('');
-  const [note, noteOnChange] = useInput('');
-
-  const saveApplication = () => {
+  const saveApplication = (event) => {
+    event.preventDefault();
     const body = {
-      role,
-      company,
-      location,
-      status,
-      contact,
-      referral,
-      salary,
-      note,
+      role: event.target.role.value,
+      company: event.target.company.value,
+      location: event.target.location.value,
+      status: event.target.status.value,
+      contact: event.target.contact.value,
+      referral: event.target.referral.value,
+      salary: event.target.salary.value,
+      note: event.target.note.value,
     };
     fetch('/api/job', {
       method: 'POST',
@@ -63,44 +45,53 @@ const AddApplication = (props) => {
           </button>
         </Link>
       </header>
-      <article className="jobCard">
+      <form className="jobCard" onSubmit={saveApplication}>
         <h3>Enter your new job details</h3>
         <div className="createJobFields">
           <label htmlFor="role">Role: </label>
-          <input name="role" value={role} onChange={roleOnChange} />
+          <input name="role"/>
         </div>
         <div className="createJobFields">
           <label htmlFor="company">Company: </label>
-          <input name="company" value={company} onChange={companyOnChange} />
+          <input name="company"/>
         </div>
         <div className="createJobFields">
           <label htmlFor="location">Location: </label>
-          <input name="location" value={location} onChange={locationOnChange} />
+          <input name="location"/>
         </div>
         <div className="createJobFields">
-          <label htmlFor="status">Status: </label>
+          {/* <label htmlFor="status">Status: </label>
           <input
             name="status"
             placeholder="applied..."
             value={status}
             onChange={statusOnChange}
-          />
+          /> */}
+          <label htmlFor="status">Status: </label>
+          <select name="status">
+            <option name="applied">Applied</option>
+            <option name="phoneInt">Phone Interview</option>
+            <option name="techInt">Technical Interview</option>
+            <option name="final">Final Interview</option>
+            <option name="offer">Offer Received</option>
+            <option name="rejected">Rejected</option>
+          </select>
         </div>
         <div className="createJobFields">
           <label htmlFor="contact">Contact: </label>
-          <input name="contact" value={contact} onChange={contactOnChange} />
+          <input name="contact" />
         </div>
         <div className="createJobFields">
           <label htmlFor="referral">Referral: </label>
-          <input name="referral" value={referral} onChange={referralOnChange} />
+          <input name="referral"/>
         </div>
         <div className="createJobFields">
           <label htmlFor="salary">Salary: </label>
-          <input name="salary" value={salary} onChange={salaryOnChange} />
+          <input name="salary"/>
         </div>
         <div className="createJobFields">
           <label htmlFor="note">Notes: </label>
-          <input name="note" value={note} onChange={noteOnChange} />
+          <input name="note"/>
         </div>
         <div className="createJobButtonContainer">
           <Link to="/allApplications" className="backLink">
@@ -108,11 +99,11 @@ const AddApplication = (props) => {
               Cancel
             </button>
           </Link>
-          <button type="button" className="btnMain" onClick={saveApplication}>
+          <button type="submit" className="btnMain">
             Save
           </button>
         </div>
-      </article>
+      </form>
     </section>
   );
 };

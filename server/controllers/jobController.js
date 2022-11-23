@@ -29,9 +29,9 @@ const JobController = {
   async createJob(req, res, next) {
 
     try {
-      const { role, company, location, status, contact, referral, salary, note } = req.body;
-      console.log({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note:note });
-      const jobs = await Job.create({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note: note });
+      // const { role, company, location, status, contact, referral, salary, note } = req.body;
+      // console.log({ role: role, company: company, location: location, status: status, contact: contact, referral: referral, salary: salary, note:note });
+      const jobs = await Job.create(req.body);
       res.locals.newJob = jobs;
       return next();
     } catch (err) {
