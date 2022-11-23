@@ -1,10 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+// @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+// ------ header ------ //
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+// ----- body ----- //
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Tajawal:wght@300&display=swap');
+
+
+// ----- Stormi, baby ------ //
+$darkBlue: #3B7097;
+$mediumBlue: #4A8DB7;
+$lightBlue: #75BDE0;
+$gradBlue: #3585a1;
+$highlightBlue: #A2E2F8;
+$lightestBlue: #bee9f7;
+$background: #F0F6FA;
+$offer: #d9c6ff;
+$offer2: #9783F8;
+
 
 body {
-    background-color: #1B2430;
-    color: whitesmoke;
-    font-family: 'Josefin Sans', cursive;
-    padding: 40px;
+    background-color: #F0F6FA;
+    color: #1f2c30;
+    font-family: 'Tajawal';
+    // padding: 40px;
 }
 
 // ALL APPLICATIONS SELECTION
@@ -12,6 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   
 
     .allAppButtons {
@@ -19,17 +38,63 @@ body {
         gap: 30px;
     }
     h1 {
-        font-size: 40px;
+        font-size: 70px;
+        font-family: 'Raleway';
+        margin-top: 0px;
+        margin-bottom: 15px;
+        color: $darkBlue;
+    }
+    h2 {
+        color: $darkBlue;
+        font-family: 'Raleway';
+    }
+    
+    h3 {
+        color: $darkBlue;
+        font-family: 'Tajawal';
     }
     button {
-        height: 50px;
-        width: 150px;
-        font-size: 20px;
-        border-radius: 6px;
-        background-color: #816797;
-        color: whitesmoke;
-        border: 1px solid black;
-        margin-bottom: 30px;
+        border: none;
+            display: inline-block;
+            padding: 1rem;
+            border-radius: 10rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: .15rem;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $highlightBlue;
+                border-radius: 10rem;
+                z-index: -2;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: $darkBlue;
+                transition: all .3s;
+                border-radius: 10rem;
+                z-index: -1;
+            }
+            &:hover {
+                color: #fff;
+                &:before {
+                width: 100%;
+                }
+            }
     }
     button:hover {
         cursor: pointer;
@@ -48,24 +113,140 @@ body {
 }
 
 //EACH COLUMN SECTION
-.column {
+.appliedColumn {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    width: 230px;
+    // max-width: ;
+    gap: 20px;
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 0;
+        font-size: 25px;
+        color: $darkBlue;
+    }
+    .job {
+      background-color: $background;
+      border: 1.5px solid $lightestBlue;
+    }
+
+}
+
+.techColumn {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    // max-width: ;
     gap: 20px;
     h1 {
         font-size: 25px;
+        color: $darkBlue;
+        margin-top: 30px;
+        margin-bottom: 0;
     }
-    
+    .job {
+        background-color: $background;
+        border: 1.5px solid lighten($darkBlue, 30%);
+      }
+}
+
+.phoneColumn {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    // max-width: ;
+    gap: 20px;
+    h1 {
+        font-size: 25px;
+        color: $darkBlue;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+    .job {
+        background-color: $background;
+        border: 1.5px solid $highlightBlue;
+      }
+}
+
+.finalColumn {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    // max-width: ;
+    gap: 20px;
+    h1 {
+        font-size: 25px;
+        color: $darkBlue;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+    .job {
+        background-color: $background;
+        border: 1.5px solid lighten($darkBlue, 20%);
+      }
+}
+
+.offerColumn {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    // max-width: ;
+    gap: 20px;
+    h1 {
+        font-size: 25px;
+        color: $darkBlue;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+    .job {
+        background-color: $background;
+        border: 1.5px solid $offer2;
+      }
+}
+
+.rejectColumn {
+    display: flex;
+    // flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    // max-width: ;
+    gap: 20px;
+    h1 {
+        font-size: 25px;
+        color: $darkBlue;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+    .job {
+        background-color: $background;
+        border: 1.5px solid $darkBlue;
+      }
 }
 
 //EACH JOB CARD
 .job {
-    border: 1px solid white;
-    background-color: #51557E;
+    // border: 1.5px solid $highlightBlue;
+    border-radius: 1em;
+    // background-color: $background;
     padding: 10px;
-    
+    float: left;
+    transition:0.3s;
+    box-shadow: 5px 5px 5px rgba(159, 159, 159, 0.1);
+
+    h3 {
+        margin: 8px 0px;
+    }
 
     ul {
        list-style-type: none; 
@@ -83,17 +264,20 @@ body {
     }
 
     .dropdown {
-        font-family: 'Josefin Sans', cursive;
+        font-family: 'Tajawal';
         font-weight: bold;
-        font-size: 15px;
-        padding: 5px;
+        font-size: 17px;
+        border-radius: 1em;
+        padding: 10px;
         height: 35px;
-        background-color: whitesmoke;
+        background-color: $background;
+        border-color: #3B7097;
+        color: $darkBlue
     }
 }
 
 .job:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.03); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 
@@ -102,6 +286,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     h2 {
         font-size: 45px;
     }
@@ -118,7 +303,9 @@ body {
     gap: 20px;
     width: 500px;
     flex-wrap: wrap;
-
+    background-color: #FDFEFF;
+    padding: 20px;
+    border-radius: 2em;
     h3 {
         text-align: center;
         font-size: 30px;
@@ -132,6 +319,21 @@ body {
         width: 300px;
         padding: 5px;
     }
+
+    select {
+        height: 35px;
+        width: 315px;
+        // display: down;
+        option {
+            position: relative;
+            z-index: 200;
+        }
+    }
+
+    .createJobFields {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .createJobButtonContainer {
@@ -143,7 +345,10 @@ body {
         height: 40px;
         width: 140px;
         font-size: 16px;
+        justify-content: center;
+        padding-bottom: 30px;
     }
+
 }
 
 
@@ -154,21 +359,181 @@ body {
     align-items: center;
     justify-content: center;
 
-    // h1 {
-    //     45px;
-    // }
+    h1 {
+        margin: 0;
+        font-size: 50px;
+        font-family: 'Raleway';
+        margin-top: 0px;
+        margin-bottom: 15px;
+        color: $darkBlue;
+    }
 
     button {
-        height: 30px;
-        width: 200px;
-        font-size: 15px;
-        border-radius: 6px;
-        background-color: #816797;
-        color: whitesmoke;
-        border: 1px solid black;
-        margin-bottom: 30px;
+        border: none;
+        display: inline-block;
+        padding: 0.8rem;
+        border-radius: 10rem;
+        color: gray;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: .15rem;
+        transition: all .3s;
+        // position: relative;
+        overflow: hidden;
+        z-index: 1;
+        position: absolute;
+        // right: 0;
+        // bottom: 0;
+        margin-left: 5px;
+        margin-top: 5px;
+        top: 0;
+        left: 0;
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $background;
+            border-radius: 10rem;
+            z-index: -2;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: $darkBlue;
+            transition: all .3s;
+            border-radius: 10rem;
+            z-index: -1;
+        }
+        &:hover {
+            color: #fff;
+            &:before {
+            width: 100%;
+            }
+        }
     }
     button:hover {
         cursor: pointer;
+    }
+}
+
+.signUpForm {
+    background-color: #F0F6FA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // position: fixed;
+    top: 0;
+    left: 0;
+    // margin-top: -100px;
+    // margin-left: -100px;
+    // padding-top: 10%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: 'Raleway';
+    font-size: 14px;
+    .box {
+        h1 {
+            margin: 0;
+            padding-top: 50px;
+            font-size: 60px;
+            color: $darkBlue;
+        }
+        border-radius: 2em;
+        background-color: #FDFEFF;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 25%;
+        height: 50%;
+        padding: 25px;
+        input {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            border-radius: 0.5em;
+            border: 1px solid gray;
+            padding: 5px;
+            width: 100;
+        }
+        button {
+            border: none;
+            display: inline-block;
+            padding: .2rem;
+            border-radius: 10rem;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: .15rem;
+            transition: all .3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $highlightBlue;
+                border-radius: 10rem;
+                z-index: -2;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: $darkBlue;
+                transition: all .3s;
+                border-radius: 10rem;
+                z-index: -1;
+            }
+            &:hover {
+                color: #fff;
+                &:before {
+                width: 100%;
+                }
+            }
+        }
+        .signUpBtn:hover {
+            cursor: pointer;
+        }
+        .redirect {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button {
+                color: #1f2c30;
+                background-color: white;
+                border: none;
+            }
+            span {
+                color: gray;
+            }
+            #link {
+                text-decoration: none;
+                color: $darkBlue;
+            }
+        }
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            padding-bottom: 25px;
+        }
     }
 }

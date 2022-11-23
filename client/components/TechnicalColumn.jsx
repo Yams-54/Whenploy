@@ -34,7 +34,7 @@ const TechnicalColumn = ({changeStats}) => {
 
 
   return (
-    <div className="column">
+    <div className="techColumn">
       <div className="columnHeader">
         <h1>Technical Interview</h1>
       </div>

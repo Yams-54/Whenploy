@@ -39,11 +39,6 @@ const AddApplication = (props) => {
     <section className="mainSection createCharContainer">
       <header className="pageHeader">
         <h2>Add New Job Application</h2>
-        <Link to="/allApplications" className="backLink">
-          <button type="button" className="btnSecondary">
-            Back to all applications
-          </button>
-        </Link>
       </header>
       <form className="jobCard" onSubmit={saveApplication}>
         <h3>Enter your new job details</h3>
@@ -69,6 +64,7 @@ const AddApplication = (props) => {
           /> */}
           <label htmlFor="status">Status: </label>
           <select name="status">
+            <option value="" disabled selected> Select Application Status </option>
             <option name="applied">Applied</option>
             <option name="phoneInt">Phone Interview</option>
             <option name="techInt">Technical Interview</option>

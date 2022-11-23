@@ -34,7 +34,7 @@ const PhoneColumn = ({changeStats}) => {
 
 
   return (
-    <div className="column">
+    <div className="phoneColumn">
       <div className="columnHeader">
         <h1>Phone Interview</h1>
       </div>
