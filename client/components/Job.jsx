@@ -4,16 +4,20 @@ import { connect } from 'react-redux';
 
 
 
-const Job = ({ info }) => {
+const Job = ( { info }) => {
   //destructure info prop
   const { role, company, location, status, contact, referral, salary, note } = info;
+  
+        const [newValue, setValue] = useState(0);
+
+
 
 
   const changeStatus = event => {
     // console.log(event.target.value);
     const company = event.target.id;
     const value = event.target.value;
-
+  
       const body = {
         value: value,
       };
@@ -32,9 +36,9 @@ const Job = ({ info }) => {
         //   props.history.push('/');
         // })
         .catch(err => console.log('saveStatusChange fetch /api/companyName: ERROR: ', err));
-
         // window.location.reload();
-    
+        setValue(value => value + 1);
+        this.props.update();
     }
 
     //for react drop down select

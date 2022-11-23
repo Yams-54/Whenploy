@@ -11,6 +11,7 @@ const OfferColumn = ({changeStats}) => {
     fetch('http://localhost:8080/api')
       .then(jobs => jobs.json())
       .then((parsedJobs) => {
+        console.log('hey !')
         setState(parsedJobs);
         let total = 0;
         parsedJobs.forEach((el) => {
