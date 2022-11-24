@@ -275,7 +275,7 @@ body {
         color: $darkBlue
     }
     .expandBtn {
-        background-color: $background;
+        background-color: transparent;
     }
     svg:hover {
         cursor: pointer;
@@ -547,4 +547,53 @@ body {
             padding-bottom: 25px;
         }
     }
+}
+
+
+
+#animation:before {
+    content: '';
+    background: linear-gradient(45deg, #FFCFD2, #FDE4CF, #FBF8CC, #B9FBC0, #F1C0E8, #8EECF5, #90DBF4, #A3C4F3, #CFBAF0, #A3C4F3, #90DBF4, #8EECF5, #F1C0E8, #B9FBC0, #FBF8CC, #FDE4CF, #FFCFD2);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite alternate ;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+#animation:active {
+    color: #000
+}
+
+#animation:active:after {
+    background: transparent;
+}
+
+#animation:hover:before {
+    opacity: 1;
+}
+
+#animation:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Select from "react-dropdown-select";
 import { connect } from 'react-redux';
 
@@ -9,6 +10,7 @@ const Job = ( { info }) => {
   const { role, company, location, status, contact, referral, salary, note } = info;
   const [show, setShow] = useState(false);
   const [arrow, setArrow] = useState(true);
+  const [animation, setAnimation] = useState('noAnimation');
 
   const changeStatus = event => {
     // console.log(event.target.value);
@@ -57,13 +59,23 @@ const Job = ( { info }) => {
       <li>Notes: {note}</li></div>)
     }
 
+    useEffect(() => {
+      if (status === 'Offer Received') {
+        const intro = document.getElementsByClassName('job');
+        // intro.setAttribute('id', 'animation')
+        // console.log('hi', intro)
+        
+        setAnimation('animation')
+      }
+    }, [])
+    
     function handleClick () {
       setShow(!show);
       setArrow(!arrow);
     }
 
     return (
-      <div className="job">
+      <div className="job" id={animation}>
         <div className="jobTitle">
         <ul>
           <li className="larger">{role}</li>
