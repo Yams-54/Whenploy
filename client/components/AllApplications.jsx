@@ -12,17 +12,42 @@ import TechnicalColumn from "./TechnicalColumn";
 
 
 const AllApplications = () => {
+  const [appliedStats, setApply] = useState(0)
+  const [phoneStats, setPhone] = useState(0)
+  const [techStats, setTech] = useState(0)
+  const [finalStats, setFinal] = useState(0)
+  const [offerStats, setOffer] = useState(0)
+  const [rejectStats, setReject] = useState(0)
+
+  const changeStats = (status, number) => {
+    if (status === 'Applied') setApply(number)
+    if (status === 'Phone Interview') setPhone(number)
+    if (status === 'Technical Interview') setTech(number)
+    if (status === 'Final Interview') setFinal(number)
+    if (status === 'Offer Received') setOffer(number)
+    if (status === 'Rejected') setReject(number)
+  }
 
   return (
     <section className="mainSection">
-      <h1>Job Application Tracker</h1>
+      <h1>Whenploy</h1>
       <div className="allAppButtons">
-        <Link to={'/AddApplication'}>
+        <Link to={'/addApplication'}>
           <button
             type="button"
             className="linkButton">Add New Job</button>
         </Link>
-        <Link to={'/ApplicationStats'}>
+        <Link to={{
+          pathname: '/ApplicationStats',
+          state: {
+            appliedStats: appliedStats,
+            phoneStats: phoneStats,
+            techStats: techStats,
+            finalStats: finalStats,
+            offerStats: offerStats,
+            rejectStats: rejectStats
+          }
+          }}>
           <button
             type="button"
             className="linkButton">Application Stats</button>
@@ -37,12 +62,12 @@ const AllApplications = () => {
         <h1>Application Rejected</h1>
       </div> */}
       <div className="columnContainer">
-        <AppliedColumn />
-        <PhoneColumn />
-        <TechnicalColumn />
-        <FinalColumn />
-        <OfferColumn />
-        <RejectedColumn />
+        <AppliedColumn changeStats={changeStats}/>
+        <PhoneColumn changeStats={changeStats}/>
+        <TechnicalColumn changeStats={changeStats}/>
+        <FinalColumn changeStats={changeStats}/>
+        <OfferColumn changeStats={changeStats}/>
+        <RejectedColumn changeStats={changeStats}/>
       </div>
     </section>
   );
